@@ -1,0 +1,55 @@
+2.
+mysql> create database CS_Student;
+mysql> use CS_Student;
+
+mysql> create table Personal_Information(
+    -> Roll_no int(5) primary key,
+    -> Name char(30) not null,
+    -> DOB date not null,
+    -> Address varchar(100) not null,
+    -> Marks_12 int(3) not null,
+    -> Phone_no Varchar(10) not null);
+
+mysql> create table Paper_Details(
+    -> Paper_Code int(4) primary key,
+    -> Name_of_Paper char(50) unique);
+
+mysql> create table Student_Aca_Att_Details(
+    -> Roll_no int(5) primary key,
+    -> Paper_Code int(4) not null,
+    -> Attendance int(3) not null,
+    -> Marks int(3) not null,
+    -> foreign key(Roll_no) references Personal_Informartion(Roll_no),
+    -> foreign key(Paper_Code) references Paper_Details(Paper_Code));
+
+Q(a) Primary key - Roll_no in table Personal_Informartion
+                             Paper_Code in table Paper_details
+     Foreign key - Roll_no in table Student_Aca_Att_Details
+                            Paper_Code in table Student_Aca_Att_Details 
+
+mysql> insert into personal_informartion values(12001,"Tarun Sharma",'1999-10-18',"Delhi",90,9956974535);
+mysql> insert into personal_informartion values(12002,"Disha Sharma",'2001-12-07',"Uttar Pradesh",86,8864090088);
+mysql> insert into personal_informartion values(12003,"Sharat Gopal",'2000-11-13',"Kerala",89,9997675623);
+mysql> insert into personal_informartion values(12004,"Ritin Sharma",'2001-05-11',"Delhi",95,7896785645);
+mysql> insert into personal_informartion values(12005,"Mohit Gupta",'2001-01-03',"Haryana",88,9870986587);
+
+mysql> insert into paper_details value(1,"Environmental Studies");
+mysql> insert into paper_details value(2,"Descriptive Statistics");
+mysql> insert into paper_details value(3,"Calculus");
+mysql> insert into paper_details value(4,"Algebra");
+mysql> insert into paper_details value(5,"DBMS");
+
+mysql> insert into Academic_details values(12001,2,85,75);
+mysql> insert into Academic_details values(12005,1,78,99);
+mysql> insert into Academic_details values(12001,2,70,91);
+mysql> insert into Academic_details values(12003,2,80,95);
+mysql> insert into Academic_details values(12002,1,95,80);
+
+Q(b) mysql> select pd.Paper_Code, pd.Name_of_Paper, pi.Name from Paper_Details as pd, Personal_Information as pi where Paper_Code=2 and pi.Roll_no in(select Roll_no from Student_Aca_Att_Details where Paper_Code=2 and Attendence>75 and Marks>60);
+
+Q(c) mysql> select Name from Personal_Informartion as pi, Academic_Details as ad where pi.Roll_no=ad.Roll_no and pi.Address="Delhi" and ad.Marks>60 and ad.Paper_Code=1;
+
+Q(d) mysql> select pi.Name, ad.Attendence, ad.Marks from Personal_Informartion as pi, Academic_Details as ad where pi.Roll_no=ad.Roll_no;
+
+Q(e) mysql> select Name from Personal_Informartion as pi, Academic_Details as ad where pi.Roll_no=ad.Roll_no and pi.Roll_no=(select Roll_no from Academic_Details where Marks=(select max(Marks) from Academic_Details));
+
