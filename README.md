@@ -1,8 +1,10 @@
 # DBMS-PRACTICALS
-####  Submitted By - Daksh Sharma
-#### Roll No - 20191210
-#### Course - Bsc. Statistics (Hons.)
-#### Submitted To - Mr. Vipin Rathi
+```
+Submitted By - Daksh Sharma
+Roll No - 20191210
+Course - Bsc. Statistics (Hons.)
+Submitted To - Mr. Vipin Rathi
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## CONTENTS
 [Practical 1](https://github.com/dakshsharmaa/DBMS-PRACTICALS/blob/master/Q1.txt)
