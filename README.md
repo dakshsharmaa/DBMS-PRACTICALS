@@ -5,7 +5,7 @@
 #### Submitted To - Mr. Vipin Rathi
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## CONTENTS
-### Practical 1
+[Practical 1](https://github.com/dakshsharmaa/DBMS-PRACTICALS/blob/master/Q1.txt)
 ##### Database Used - DUC_Library
 ##### Table 1 - LibraryBooks
 ##### Table 2 - IssuedBooks
